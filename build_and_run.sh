@@ -6,12 +6,9 @@
 setfacl -m user:1000:r ${HOME}/.Xauthority
 docker build -t mediathekview .
 exec docker run \
-    -it \
-    --rm \
-    --name mediathekview \
-    --net=host \
-    -e DISPLAY \
+    -p 8080:8080 \  
+    --name mediathekview \     
     -v user:/home/user/ \
     -v media:/media/ \
-    mediathekview \
-    "$@"
+    mediathekview 
+
