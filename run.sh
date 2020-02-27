@@ -1,4 +1,5 @@
 #!/bin/bash
+setfacl -m user:1000:r ${HOME}/.Xauthority
 exec docker run \
     -it \
     --rm \
